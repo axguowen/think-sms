@@ -58,7 +58,7 @@ class Aliyun extends Platform
         $config->endpoint = $this->options['endpoint'] ?: 'dysmsapi.aliyuncs.com';
 
 		// 实例化短信模型
-		$this->handler = new \AlibabaCloud\SDK\Dysmsapi\V20170525\Dysmsapi($config);;
+		$this->handler = new \AlibabaCloud\SDK\Dysmsapi\V20170525\Dysmsapi($config);
     }
 
 	/**
