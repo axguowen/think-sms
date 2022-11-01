@@ -60,7 +60,7 @@ class Baidu extends Platform
                 'ak' => $this->options['access_key'],
                 'sk' => $this->options['secret_key']
             ],
-            BceClientConfigOptions::ENDPOINT => empty($this->options['endpoint']) ? 'smsv3.bj.baidubce.com' : $this->options['endpoint'],
+            BceClientConfigOptions::ENDPOINT => $this->options['endpoint'] ?: 'smsv3.bj.baidubce.com',
         ];
 		// 实例化短信模型
 		$this->handler = new SmsClient($config);

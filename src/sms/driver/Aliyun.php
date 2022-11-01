@@ -55,7 +55,7 @@ class Aliyun extends Platform
             'accessKeySecret' => $this->options['access_secret'],
         ]);
         // 访问的域名
-        $config->endpoint = empty($this->options['endpoint']) ? 'dysmsapi.aliyuncs.com' : $this->options['endpoint'];
+        $config->endpoint = $this->options['endpoint'] ?: 'dysmsapi.aliyuncs.com';
 
 		// 实例化短信模型
 		$this->handler = new \AlibabaCloud\SDK\Dysmsapi\V20170525\Dysmsapi($config);;
