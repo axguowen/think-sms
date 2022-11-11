@@ -32,41 +32,6 @@ abstract class Platform
 	protected $mobiles = [];
 
 	/**
-     * 获取平台配置
-     * @access public
-     * @param  string $name 配置名称
-     * @return array
-     */
-    public function config($name = null)
-    {
-        // 未指定配置项
-        if (is_null($name)) {
-            // 返回全部配置
-            return $this->options;
-        }
-        // 存在指定的配置项
-        if(isset($this->options[$name])){
-            return $this->options[$name];
-        }
-        // 指定的配置项不存在
-        return null;
-    }
-
-    /**
-     * 设置平台配置
-     * @access public
-     * @param  array $options 配置参数
-     * @return $this
-     */
-    public function setConfig($options)
-    {
-        // 合并配置参数
-        $this->options = array_merge($this->options, $options);
-        // 返回
-        return $this;
-    }
-
-	/**
      * 设置手机号
      * @access public
      * @param  array $mobiles 手机号集合

@@ -31,17 +31,6 @@ class Sms extends Manager
 	protected $namespace = '\\axguowen\\sms\\driver\\';
 
 	/**
-     * 选择或者切换平台
-     * @access public
-     * @param string $name 平台的配置名
-     * @return \axguowen\sms\Platform
-     */
-    public function platform($name = null)
-    {
-        return $this->driver($name);
-    }
-
-	/**
      * 默认驱动
      * @access public
      * @return string|null
@@ -68,16 +57,6 @@ class Sms extends Manager
     }
 
 	/**
-     * 获取驱动配置
-     * @param string $name 驱动名称
-     * @return mixed
-     */
-    protected function resolveConfig($name)
-    {
-        return $this->getPlatformConfig($name);
-    }
-
-	/**
      * 获取平台配置
      * @param string $platform 平台名称
      * @param null|string $name 配置名称
@@ -92,6 +71,37 @@ class Sms extends Manager
         }
 		// 驱动不存在
         throw new \InvalidArgumentException('短信平台 [' . $platform . '] 配置不存在.');
+    }
+
+    /**
+     * 当前平台的驱动配置
+     * @param string $name 驱动名称
+     * @return mixed
+     */
+    protected function resolveType($name)
+    {
+        return $this->getStoreConfig($name, 'type', 'file');
+    }
+
+	/**
+     * 获取驱动配置
+     * @param string $name 驱动名称
+     * @return mixed
+     */
+    protected function resolveConfig($name)
+    {
+        return $this->getPlatformConfig($name);
+    }
+
+	/**
+     * 选择或者切换平台
+     * @access public
+     * @param string $name 平台的配置名
+     * @return \axguowen\sms\Platform
+     */
+    public function platform($name = null)
+    {
+        return $this->driver($name);
     }
 
 	/**

@@ -105,6 +105,8 @@ return [
     'platforms' => [
         // 七牛云
         'qiniu' => [
+            // 驱动类型
+            'type' => 'Qiniu',
             // 公钥
             'access_key' => '',
             // 私钥
@@ -114,6 +116,8 @@ return [
         ],
         // 腾讯云
         'tencent' => [
+            // 驱动类型
+            'type' => 'Tencent',
             // 公钥
             'secret_id' => '',
             // 私钥
@@ -127,6 +131,8 @@ return [
         ],
         // 阿里云
         'aliyun' => [
+            // 驱动类型
+            'type' => 'Aliyun',
             // 公钥
             'access_id' => '',
             // 私钥
@@ -140,6 +146,8 @@ return [
         ],
         // 百度云
         'baidu' => [
+            // 驱动类型
+            'type' => 'Baidu',
             // 公钥
             'access_key' => '',
             // 私钥
