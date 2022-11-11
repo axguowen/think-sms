@@ -80,7 +80,7 @@ class Sms extends Manager
      */
     protected function resolveType($name)
     {
-        return $this->getStoreConfig($name, 'type', 'file');
+        return $this->getPlatformConfig($name, 'type', 'file');
     }
 
 	/**
