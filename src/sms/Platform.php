@@ -90,6 +90,15 @@ abstract class Platform
         return $this->handler;
     }
 
+    /**
+     * 发送短信
+     * @access public
+     * @param array $data 短信变量
+     * @param string $template 临时指定模板
+     * @return array
+     */
+    abstract public function send($data = [], $template = null);
+
 	public function __call($method, $args)
     {
         return call_user_func_array([$this->handler, $method], $args);
